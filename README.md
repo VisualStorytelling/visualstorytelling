@@ -47,6 +47,12 @@ EOT
 # install dependencies:
 yarn install
 
+# Do initial builds, to setup dependencies
+(cd provenance-core && yarn build)
+(cd provenance-tree-visualization && yarn build)
+(cd slide-deck-visualization && yarn build)
+
+
 # to auto re-build dependencies, start watchers:
 PIDS=()
 (cd provenance-core && yarn start) &; PIDS+=$!
