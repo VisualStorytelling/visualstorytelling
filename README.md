@@ -63,7 +63,7 @@ PIDS=()
 # sleep long time
 sleep 1e10 &; SLEEP_PID=$!; PIDS+=$SLEEP_PID
 
-# kill watchers when brainvis watcher is stopped:
+# kill watchers when CTRL-C:
 trap "kill $PIDS" SIGINT
 
 wait $SLEEP_PID
