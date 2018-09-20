@@ -64,7 +64,7 @@ PIDS=()
 sleep 1e10 &; SLEEP_PID=$!; PIDS+=$SLEEP_PID
 
 # kill watchers when CTRL-C:
-trap "kill $PIDS" SIGINT
+trap "kill -9 $PIDS" SIGINT
 
 wait $SLEEP_PID
 trap - SIGINT
