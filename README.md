@@ -6,6 +6,7 @@
 | [provenance-core](/../../../provenance-core) | Data structures and tracking for interaction provenance in web applications |
 | [provenance-tree-visualization](/../../../provenance-tree-visualization)  | D3 based interactive visualization of provenance graph |
 | [provenance-tree-visualization-react](/../../../provenance-tree-visualization-react) | React wrapper for [provenance-tree-visualization](/../../../provenance-tree-visualization) |
+| [slide-deck-visualization](/../../../slide-deck-visualization) | D3 based slide deck GUI |
 | [brainvis](/../../../brainvis) (private) | Brainvis demo |
 
 
