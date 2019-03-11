@@ -10,9 +10,11 @@
 | [provenance-tree-calculator-demo](/../../../provenance-tree-calculator-demo) | Simple calculator demo to show provenance features |
 | [brainvis](/../../../brainvis) (private) | Brainvis demo |
 | [provenance-task-list](/../../../provenance-task-list) (private) | Task list (Brainvis dependency) |
+| [ami](/../../../ami) (private) | custom AMI (Brainvis dependency) (https://github.com/FNNDSC/ami) |
 
 
-
+## Requirements
+* Node **(For brainvis, use node v10.15.3)**
 
 ## Development
 The different modules are dependent on one another, to be able to work on several modules at the same time use [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/). Make sure you have node installed (8.x), and yarn. Then (paste in terminal as a whole, or per instruction):
@@ -29,10 +31,11 @@ git clone git@github.com:VisualStorytelling/provenance-tree-calculator-demo.git
 # if working on brainvis:
 git clone git@github.com:VisualStorytelling/brainvis.git
 git clone git@github.com:VisualStorytelling/provenance-task-list.git
+git clone git@github.com:VisualStorytelling/ami.git
 
 # create a package.json for the workspace:
 # Angular doesn't play nice in a yarn workspace, the nohoist ensures packages are installed in the subfolders' node_modules instead of the root.
-# Add `brainvis` and `provenance-task-list` to packages if working on brainvis
+# Add `brainvis`, `provenance-task-list` and `ami` to packages if working on brainvis
 cat <<EOT > package.json
 {
   "private": true,
@@ -62,6 +65,7 @@ yarn install
 (cd slide-deck-visualization && yarn build)
 # if brainvis:
 # (cd provenance-task-list && yarn build)
+# (cd ami && yarn build:ami)
 # Use `yarn watch` in each directory to auto build after updates.
 
 # Run demo or brainvis:
