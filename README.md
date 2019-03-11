@@ -9,6 +9,8 @@
 | [slide-deck-visualization](/../../../slide-deck-visualization) | D3 based slide deck GUI |
 | [provenance-tree-calculator-demo](/../../../provenance-tree-calculator-demo) | Simple calculator demo to show provenance features |
 | [brainvis](/../../../brainvis) (private) | Brainvis demo |
+| [provenance-task-list](/../../../provenance-task-list) (private) | Task list (Brainvis dependency) |
+
 
 
 
@@ -22,14 +24,15 @@ mkdir prov && cd prov
 git clone git@github.com:VisualStorytelling/provenance-core.git
 git clone git@github.com:VisualStorytelling/slide-deck-visualization.git
 git clone git@github.com:VisualStorytelling/provenance-tree-visualization.git
-
-# one of:
 git clone git@github.com:VisualStorytelling/provenance-tree-calculator-demo.git
+
+# if working on brainvis:
 git clone git@github.com:VisualStorytelling/brainvis.git
+git clone git@github.com:VisualStorytelling/provenance-task-list.git
 
 # create a package.json for the workspace:
 # Angular doesn't play nice in a yarn workspace, the nohoist ensures packages are installed in the subfolders' node_modules instead of the root.
-# Add `brainvis` to packages if working on it
+# Add `brainvis` and `provenance-task-list` to packages if working on brainvis
 cat <<EOT > package.json
 {
   "private": true,
@@ -57,6 +60,8 @@ yarn install
 (cd provenance-core && yarn build)
 (cd provenance-tree-visualization && yarn build)
 (cd slide-deck-visualization && yarn build)
+# if brainvis:
+# (cd provenance-task-list && yarn build)
 # Use `yarn watch` in each directory to auto build after updates.
 
 # Run demo or brainvis:
