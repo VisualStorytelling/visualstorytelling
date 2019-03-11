@@ -62,5 +62,5 @@ yarn install
 # Run demo or brainvis:
 cd provenance-tree-calculator-demo
 yarn start
+# Now you can open your browser on http://localhost:8080/
 ```
-
