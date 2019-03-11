@@ -7,6 +7,7 @@
 | [provenance-tree-visualization](/../../../provenance-tree-visualization)  | D3 based interactive visualization of provenance graph |
 | [provenance-tree-visualization-react](/../../../provenance-tree-visualization-react) | React wrapper for [provenance-tree-visualization](/../../../provenance-tree-visualization) |
 | [slide-deck-visualization](/../../../slide-deck-visualization) | D3 based slide deck GUI |
+| [provenance-tree-calculator-demo](/../../../provenance-tree-calculator-demo) | Simple calculator demo to show provenance features |
 | [brainvis](/../../../brainvis) (private) | Brainvis demo |
 
 
@@ -21,10 +22,14 @@ mkdir prov && cd prov
 git clone git@github.com:VisualStorytelling/provenance-core.git
 git clone git@github.com:VisualStorytelling/slide-deck-visualization.git
 git clone git@github.com:VisualStorytelling/provenance-tree-visualization.git
+
+# one of:
+git clone git@github.com:VisualStorytelling/provenance-tree-calculator-demo.git
 git clone git@github.com:VisualStorytelling/brainvis.git
 
 # create a package.json for the workspace:
 # Angular doesn't play nice in a yarn workspace, the nohoist ensures packages are installed in the subfolders' node_modules instead of the root.
+# Add `brainvis` to packages if working on it
 cat <<EOT > package.json
 {
   "private": true,
@@ -33,7 +38,7 @@ cat <<EOT > package.json
       "provenance-core",
       "provenance-tree-visualization",
       "slide-deck-visualization",
-      "brainvis"
+      "provenance-tree-calculator-demo"
     ],
     "nohoist": [
         "**/@angular*",
@@ -52,23 +57,10 @@ yarn install
 (cd provenance-core && yarn build)
 (cd provenance-tree-visualization && yarn build)
 (cd slide-deck-visualization && yarn build)
+# Use `yarn watch` in each directory to auto build after updates.
 
-
-# to auto re-build dependencies, start watchers:
-PIDS=()
-(cd provenance-core && yarn start) &; PIDS+=$!
-(cd provenance-tree-visualization && yarn start) &; PIDS+=$!
-(cd slide-deck-visualization && yarn start) &; PIDS+=$!
-(cd brainvis && yarn start) &; PIDS+=$!
-
-# sleep long time
-sleep 1e10 &; SLEEP_PID=$!; PIDS+=$SLEEP_PID
-
-# kill watchers when CTRL-C:
-trap "kill -9 $PIDS" SIGINT
-
-wait $SLEEP_PID
-trap - SIGINT
-echo "done"
+# Run demo or brainvis:
+cd provenance-tree-calculator-demo
+yarn start
 ```
 
