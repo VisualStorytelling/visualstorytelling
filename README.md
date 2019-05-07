@@ -66,6 +66,9 @@ yarn install
 # if brainvis:
 # (cd provenance-task-list && yarn build)
 # (cd ami && yarn build:ami)
+# the ami build crashes, but it should still work, expect the following error:
+# TS2694: Namespace '"/home/tom/Projects/visualstorytelling/ami/node_modules/three/src/Three"' has no exported member 'OrbitControls'.
+#
 # Use `yarn watch` in each directory to auto build after updates.
 
 # Run demo or brainvis:
