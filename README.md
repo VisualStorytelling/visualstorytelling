@@ -44,6 +44,7 @@ cat <<EOT > package.json
       "provenance-tree-visualization",
       "provenance-task-list",
       "slide-deck-visualization",
+      "ami",
       "brainvis"
     ],
     "nohoist": [
