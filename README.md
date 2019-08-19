@@ -43,7 +43,8 @@ cat <<EOT > package.json
       "provenance-core",
       "provenance-tree-visualization",
       "provenance-task-list",
-      "slide-deck-visualization"
+      "slide-deck-visualization",
+      "brainvis"
     ],
     "nohoist": [
         "**/@angular*",
