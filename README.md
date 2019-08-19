@@ -25,8 +25,7 @@ mkdir prov && cd prov
 # clone repos that you want:
 git clone git@github.com:VisualStorytelling/provenance-core.git
 git clone git@github.com:VisualStorytelling/slide-deck-visualization.git
-git clone git@github.com:VisualStorytelling/provenance-tree-visualization.git
-git clone git@github.com:VisualStorytelling/provenance-tree-calculator-demo.git
+git clone git@github.com:VisualStorytelling/provenance-tree-visualization-grouping.git provenance-tree-visualization
 
 # if working on brainvis:
 git clone git@github.com:VisualStorytelling/brainvis.git
@@ -43,8 +42,8 @@ cat <<EOT > package.json
     "packages": [
       "provenance-core",
       "provenance-tree-visualization",
-      "slide-deck-visualization",
-      "provenance-tree-calculator-demo"
+      "provenance-task-list",
+      "slide-deck-visualization"
     ],
     "nohoist": [
         "**/@angular*",
@@ -63,6 +62,7 @@ yarn install
 (cd provenance-core && yarn build)
 (cd provenance-tree-visualization && yarn build)
 (cd slide-deck-visualization && yarn build)
+
 # if brainvis:
 # (cd provenance-task-list && yarn build)
 # (cd ami && yarn build:ami)
@@ -72,7 +72,7 @@ yarn install
 # Use `yarn watch` in each directory to auto build after updates.
 
 # Run demo or brainvis:
-cd provenance-tree-calculator-demo
+cd brainvis
 yarn start
 # Now you can open your browser on http://localhost:8080/
 ```
